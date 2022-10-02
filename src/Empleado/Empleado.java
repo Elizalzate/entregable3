@@ -1,34 +1,51 @@
 package Empleado;
 
 import javax.swing.*;
+import java.awt.event.*;
 
 public class Empleado {
     private String codigoEmpleado, nombreEmpleado;
     private double horasTrabajadas, valorHora, porcentajeReteFuente, salarioBruto, salarioNeto;
-    private JPanel panel1;
+    private JPanel empleadoForm;
+    private JTextPane txtCodigo, txtNombre, txtValorHora, txtHorasTrabajadas, txtPorcReteFuente;
+    private JLabel lblCodigo, lblNombre, lblValorHora, lblHorasTrabajadas, lblPorcReteFuente;
+    private JButton btnGuardar;
 
-    public Empleado(String codigoEmpleado, String nombreEmpleado,
+   /* public Empleado(String codigoEmpleado, String nombreEmpleado,
              double horasTrabajadas, double valorHora, double porcentajeReteFuente){
         this.codigoEmpleado = codigoEmpleado;
         this.nombreEmpleado = nombreEmpleado;
         this.horasTrabajadas = horasTrabajadas;
         this.valorHora = valorHora;
         this.porcentajeReteFuente = porcentajeReteFuente;
+    }*/
+
+    public Empleado() {
+        btnGuardar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                settingEmployeeInfo();
+            }
+        });
     }
 
-    public void settingEmployeeInfo (String codigoEmpleado, String nombreEmpleado,
-    double horasTrabajadas, double valorHora, double porcentajeReteFuente) {
-        System.out.println("Ingresa los datos");
+    public void loadForm(){
         //add the frame
-        JFrame f = new JFrame("Red Alert!");
-        //set size: width, height (in pixels)
-        f.setSize(450, 475);
+        JFrame f = new JFrame("Empleado");
+        f.setContentPane(new Empleado().empleadoForm);
+        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        f.pack();
         //set the location (x,y)
-        f.setLocation(120, 60);
-        this.codigoEmpleado = codigoEmpleado;
-        this.nombreEmpleado = nombreEmpleado;
-        this.horasTrabajadas = horasTrabajadas;
-        this.valorHora = valorHora;
-        this.porcentajeReteFuente = porcentajeReteFuente;
+        f.setLocation(250, 60);
+        f.setVisible(true);
+        f.setResizable(false);
+    }
+
+
+    public void settingEmployeeInfo () {
+        System.out.println("Ingresa los datos");
+        this.codigoEmpleado = txtCodigo.getText();
+        this.nombreEmpleado = txtNombre.getText();
+        System.out.println(codigoEmpleado);
     }
 }
