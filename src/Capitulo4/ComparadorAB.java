@@ -16,7 +16,7 @@ public class ComparadorAB {
         btnCalcular.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                comparar(Double.parseDouble(txtNumeroA.getText()), Double.parseDouble(txtNumeroB.getText()));
+                comparar(A, B);
             }
         });
         btnLimpiar.addActionListener(new ActionListener() {
@@ -29,15 +29,17 @@ public class ComparadorAB {
     }
 
     public void loadForm(){
-        //add the frame
         JFrame f = new JFrame("Comparador de números");
         f.setContentPane(new ComparadorAB().comparadorABForm);
-        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         f.pack();
-        //set the location (x,y)
-        f.setLocation(600, 60);
+        f.setLocation(400, 60);
         f.setVisible(true);
         f.setResizable(false);
+    }
+
+    public void settingInfo(){
+        A = Double.parseDouble(txtNumeroA.getText());
+        B = Double.parseDouble(txtNumeroB.getText());
     }
 
     public void comparar ( double A, double B){

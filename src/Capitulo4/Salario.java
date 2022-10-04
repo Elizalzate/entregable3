@@ -1,8 +1,7 @@
 package Capitulo4;
 
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.*;
 
 public class Salario {
     private String nombre;
@@ -31,13 +30,10 @@ public class Salario {
     }
 
     public void loadForm(){
-        //add the frame
         JFrame f = new JFrame("Salario");
         f.setContentPane(new Salario().salarioForm);
-        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         f.pack();
-        //set the location (x,y)
-        f.setLocation(600, 60);
+        f.setLocation(400, 60);
         f.setVisible(true);
         f.setResizable(false);
     }

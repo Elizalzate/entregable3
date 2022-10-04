@@ -1,20 +1,15 @@
 package Capitulo4;
 
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.*;
 
 public class FormulaCuadratica {
     private double A, B, C, raiz, x1, x2;
 
     private JPanel cuadraticaForm;
-    private JLabel lblA, lblB, lblC;
-    private JTextPane txtValorA, txtValorB, txtValorC;
+    private JLabel lblA, lblB, lblC, lblX1, lblX2;
+    private JTextPane txtValorA, txtValorB, txtValorC, txtX1, txtX2;
     private JButton btnCalcular, btnLimpiar;
-    private JLabel lblX1;
-    private JLabel lblX2;
-    private JTextPane txtX1;
-    private JTextPane txtX2;
 
     public FormulaCuadratica() {
         btnCalcular.addActionListener(new ActionListener() {
@@ -35,13 +30,10 @@ public class FormulaCuadratica {
     }
 
     public void loadForm(){
-        //add the frame
         JFrame f = new JFrame("Fórmula cuadrática");
         f.setContentPane(new FormulaCuadratica().cuadraticaForm);
-        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         f.pack();
-        //set the location (x,y)
-        f.setLocation(600, 60);
+        f.setLocation(400, 60);
         f.setVisible(true);
         f.setResizable(false);
     }
@@ -60,15 +52,16 @@ public class FormulaCuadratica {
                     "Las soluciones para la ecuación cuadratica son soluciones complejas");
         }
         else if (raiz == 0) {
-            txtX1.setText(String.valueOf((-B + Math.sqrt(raiz)) / (2 * A)));
+            x1 = (-B + Math.sqrt(raiz)) / (2 * A);
+            txtX1.setText(String.valueOf(x1));
             JOptionPane.showMessageDialog(cuadraticaForm,"La ecuación cuadratica tiene sólo una solución " +
-                    "X= " + (-B + Math.sqrt(raiz)) / (2 * A));
+                    "X= " + x1);
         }
         else {
-            txtX1.setText(String.valueOf(x1));
-            txtX2.setText(String.valueOf(x2));
             x1 = (-B + Math.sqrt(raiz)) / (2 * A);
             x2 = (-B - Math.sqrt(raiz)) / (2 * A);
+            txtX1.setText(String.valueOf(x1));
+            txtX2.setText(String.valueOf(x2));
             JOptionPane.showMessageDialog(cuadraticaForm,
                     "Las dos posibles soluciones para la ecuación de segundo grado " +
                     "son: X1 = " + x1 + " y X2 = " + x2);

@@ -32,13 +32,10 @@ public class Matricula {
     }
 
     public void loadForm(){
-        //add the frame
         JFrame f = new JFrame("Matrícula");
         f.setContentPane(new Matricula().matriculaForm);
-        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         f.pack();
-        //set the location (x,y)
-        f.setLocation(600, 60);
+        f.setLocation(400, 60);
         f.setVisible(true);
         f.setResizable(false);
     }

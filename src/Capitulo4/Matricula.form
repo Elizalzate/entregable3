@@ -2,14 +2,14 @@
 <form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="Capitulo4.Matricula">
   <grid id="27dc6" binding="matriculaForm" layout-manager="FlowLayout" hgap="20" vgap="20" flow-align="1">
     <constraints>
-      <xy x="20" y="20" width="600" height="400"/>
+      <xy x="20" y="20" width="600" height="340"/>
     </constraints>
     <properties>
       <background color="-1513240"/>
-      <minimumSize width="600" height="400"/>
+      <minimumSize width="600" height="340"/>
       <name value="matriculaForm"/>
       <nextFocusableComponent value="98783"/>
-      <preferredSize width="650" height="400"/>
+      <preferredSize width="650" height="340"/>
     </properties>
     <border type="empty" title="Matrícula" title-justification="2" title-position="3">
       <font name="Segoe UI" size="32" style="1"/>
