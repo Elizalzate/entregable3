@@ -1,10 +1,7 @@
 package FigurasGeometricas;
 
-import Dashboard.Dashboard;
-
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.*;
 
 public class Rectangulo {
     int base;
@@ -13,7 +10,9 @@ public class Rectangulo {
     private JTextPane txtBase, txtPerimetro, txtArea, txtAltura;
     private JButton btnCalcular, btnLimpiar;
 
-    public Rectangulo() {
+    public Rectangulo(int base, int altura) {
+        this.base = base;
+        this.altura = altura;
         btnCalcular.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -35,14 +34,14 @@ public class Rectangulo {
 
     public void loadForm(){
         JFrame f = new JFrame("Rectángulo");
-        f.setContentPane(new Rectangulo().rectanguloForm);
+        f.setContentPane(new Rectangulo(1,2).rectanguloForm);
         f.pack();
         f.setLocation(400, 60);
         f.setVisible(true);
         f.setResizable(false);
     }
 
-    void settingInfo(){
+    private void settingInfo(){
         this.base = Integer.parseInt(txtBase.getText());
         this.altura = Integer.parseInt(txtAltura.getText());
     }
@@ -52,7 +51,7 @@ public class Rectangulo {
      * multiplicación de la base por la altura
      * Área de un rectángulo
      */
-    void calcularArea() {
+    private void calcularArea() {
         txtArea.setText(String.valueOf(base * altura));
     }
     /**
@@ -60,7 +59,16 @@ public class Rectangulo {
      * como (2 * base) + (2 * altura)
      * Perímetro de un rectángulo
      */
-    void calcularPerimetro() {
+    private void calcularPerimetro() {
        txtPerimetro.setText(String.valueOf((2 * base) + (2 * altura)));
     }
+
+    double getArea(){
+        return Double.parseDouble(String.valueOf(base * altura));
+    }
+
+    double getPerimetro(){
+        return Double.parseDouble(String.valueOf((2 * base) + (2 * altura)));
+    }
 }
+

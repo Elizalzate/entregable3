@@ -13,7 +13,10 @@ public class Trapecio {
     private JTextPane txtArea, txtAltura, txtBaseMenor, txtBaseMayor, txtPerimetro;
     private JButton btnCalcular, btnLimpiar;
 
-    public Trapecio() {
+    public Trapecio(int baseMayor, int baseMenor, int altura) {
+        this.baseMayor = baseMayor;
+        this.baseMenor = baseMenor;
+        this.altura = altura;
         btnCalcular.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -36,7 +39,7 @@ public class Trapecio {
 
     public void loadForm(){
         JFrame f = new JFrame("Trapecio");
-        f.setContentPane(new Trapecio().trapecioForm);
+        f.setContentPane(new Trapecio(15,12,6).trapecioForm);
         f.pack();
         f.setLocation(400, 60);
         f.setVisible(true);
@@ -55,5 +58,13 @@ public class Trapecio {
 
     private void calcularPerimetro() {
        txtPerimetro.setText(String.valueOf(baseMenor + baseMayor + 2*Math.sqrt(Math.pow((baseMayor-baseMenor)/2.0,2) + Math.pow(altura,2))));
+    }
+
+    double getArea(){
+        return Double.parseDouble(String.valueOf(((baseMayor + baseMenor) / 2.0)*altura));
+    }
+
+    double getPerimetro(){
+        return Double.parseDouble(String.valueOf(baseMenor + baseMayor + 2*Math.sqrt(Math.pow((baseMayor-baseMenor)/2.0,2) + Math.pow(altura,2))));
     }
 }

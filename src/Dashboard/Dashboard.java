@@ -81,7 +81,7 @@ public class Dashboard {
     }
 
     public void loadForm(){
-        JFrame f = new JFrame("Círculo");
+        JFrame f = new JFrame("Menú principal");
         f.setContentPane(new Dashboard().dashboardForm);
         f.pack();
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

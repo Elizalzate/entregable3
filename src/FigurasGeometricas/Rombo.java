@@ -11,7 +11,10 @@ public class Rombo {
     private JTextPane txtArea, txtLado, txtPerimetro, txtDiametroMayor, txtDiametroMenor;
     private JButton btnCalcular, btnLimpiar;
 
-    public Rombo() {
+    public Rombo(int lado, int diametroMayor, int diametroMenor) {
+        this.lado = lado;
+        this.diametroMayor = diametroMayor;
+        this.diametroMenor = diametroMenor;
         btnCalcular.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -33,8 +36,8 @@ public class Rombo {
     }
 
     public void loadForm(){
-        JFrame f = new JFrame("Rectángulo");
-        f.setContentPane(new Rombo().romboForm);
+        JFrame f = new JFrame("Rombo");
+        f.setContentPane(new Rombo(5,8,4).romboForm);
         f.pack();
         f.setLocation(400, 60);
         f.setVisible(true);
@@ -53,5 +56,13 @@ public class Rombo {
 
     private void calcularPerimetro() {
         txtPerimetro.setText(String.valueOf(4*lado));
+    }
+
+    double getArea(){
+        return Double.parseDouble(String.valueOf((diametroMayor * diametroMenor) / 2.0));
+    }
+
+    double getPerimetro(){
+        return Double.parseDouble(String.valueOf(4*lado));
     }
 }

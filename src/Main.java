@@ -5,5 +5,4 @@ public class Main {
         Dashboard dashboardEjercicios = new Dashboard();
         dashboardEjercicios.loadForm();
     }
-
 }

@@ -10,7 +10,9 @@ public class TrianguloRectangulo {
     private JTextPane txtBase, txtAltura, txtPerimetro, txtArea;
     private JButton btnCalcular, btnLimpiar;
 
-    public TrianguloRectangulo() {
+    public TrianguloRectangulo(int base, int altura) {
+        this.base = base;
+        this.altura = altura;
         btnCalcular.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -32,15 +34,15 @@ public class TrianguloRectangulo {
     }
 
     public void loadForm(){
-        JFrame f = new JFrame("Rectángulo");
-        f.setContentPane(new TrianguloRectangulo().trianguloRectanguloForm);
+        JFrame f = new JFrame("Triángulo rectángulo");
+        f.setContentPane(new TrianguloRectangulo(3,5).trianguloRectanguloForm);
         f.pack();
         f.setLocation(400, 65);
         f.setVisible(true);
         f.setResizable(false);
     }
 
-    void settingInfo(){
+    private void settingInfo(){
         this.base = Integer.parseInt(txtBase.getText());
         this.altura = Integer.parseInt(txtAltura.getText());
     }
@@ -66,6 +68,14 @@ public class TrianguloRectangulo {
             JOptionPane.showMessageDialog(trianguloRectanguloForm,"Es un triángulo escaleno");
         else
             JOptionPane.showMessageDialog(trianguloRectanguloForm,"Es un triángulo isósceles");
+    }
+
+    double getArea(){
+        return Double.parseDouble(String.valueOf(base * altura / 2));
+    }
+
+    double getPerimetro(){
+        return Double.parseDouble(String.valueOf(base + altura + calcularHipotenusa()));
     }
 }
 

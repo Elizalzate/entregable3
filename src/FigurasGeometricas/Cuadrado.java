@@ -9,7 +9,8 @@ public class Cuadrado {
     private JButton btnCalcular, btnLimpiar;
     private JPanel cuadradoForm;
 
-    public Cuadrado() {
+    public Cuadrado(int lado) {
+        this.lado = lado;
         btnCalcular.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -30,23 +31,31 @@ public class Cuadrado {
 
     public void loadForm(){
         JFrame f = new JFrame("Cuadrado");
-        f.setContentPane(new Cuadrado().cuadradoForm);
+        f.setContentPane(new Cuadrado(5).cuadradoForm);
         f.pack();
         f.setLocation(400, 60);
         f.setVisible(true);
         f.setResizable(false);
     }
 
-    void settingInfo(){
+    private void settingInfo(){
         this.lado = Integer.parseInt(txtLado.getText());
     }
 
-    public void calcularArea() {
+    private void calcularArea() {
         txtArea.setText(String.valueOf(lado*lado));
     }
 
-    public void calcularPerimetro() {
+    private void calcularPerimetro() {
         txtPerimetro.setText(String.valueOf(4*lado));
+    }
+
+    double getArea(){
+        return Double.parseDouble(String.valueOf(lado*lado));
+    }
+
+    double getPerimetro(){
+        return Double.parseDouble(String.valueOf(4*lado));
     }
 }
 
